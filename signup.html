@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.G.A. Sign Up Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="img/bg.png" alt="background" class="bg">
+            <div class="logo-box">
+                    <img src="img/lg.png" alt="Logo">
+            </div>
+        </div>
+                
+            <div class="right-panel">
+                <form class="form-container" action="thankyou.html">
+                    <fieldset>
+                        <legend>Sign-Up Form</legend>
+                        <div class="form-group">
+                            <label for="first-name">First Name:</label>
+                            <input type="text" id="first-name" name="first-name" placeholder="David" pattern="[A-Za-z\s]+" title="Please use letters only A-Z or a-z" minlength="3"  autocomplete="given-name"required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name:</label>
+                            <input type="text" id="last-name" name="last-name" placeholder="Ajala" pattern="[A-Za-z\s]+" title="Please use letters only A-Z or a-z" minlength="3" autocomplete="family-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="example@gmail.com" autocomplete="email"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone-number">Phone Number:</label>
+                            <input type="tel" id="phone-number" name="phone-number" placeholder="+234 000 000 0000" pattern="\+234\s?[0-9]{3}\s?[0-9]{3}\s?[0-9]{4}"
+        title="Phone number should start with +234 followed by 10 digits" value="+234 " autocomplete="tel" required>
+                        </div>
+                        <div class="form-group" style="position: relative; width: 100%;">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="********" minlength="8" maxlength="15" autocomplete="new-password" required style="width: 100%; padding-right: 40px;">
+                            <span class="fa-solid fa-eye-slash eye-icon" id="toggle-password-1"></span>
+                        </div>
+                        <div class="form-group" style="position: relative; width: 100%;">
+                            <label for="confirm-password">Confirm Password:</label>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="********" minlength="8" maxlength="15" autocomplete="new-password" required style="width: 100%; padding-right: 40px;">
+                             <span class="fa-solid fa-eye-slash eye-icon" id="toggle-password-2"></span>
+                             <span id="password-error" style="color: red; font-size: 14px;"></span>
+                        </div>
+                        <button type="submit">Create Account</button><br><br>
+                        <p>Already have an account?<a href="#">Log in</a></p>
+                    </fieldset>
+            </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>David Godspower Ajala (D.G.A.) &copy <span id="year"></span></p><br>
+            <!--<a href="https://github.com/david-godspower" target="_blank"><i class="fab fa-github icons" id="github"></i></a>-->
+            <a href="https://www.linkedin.com/in/david-ajala-a93b862a1/" target="_blank"><i class="fab fa-linkedin icons" id="linkedin"></i></a>
+             <a href="mailto:ajaladavid11@gmail.com" target="_blank"><i class="fas fa-envelope icons" id="gmail"></i></a>
+            <a href="https://web.facebook.com/facebook.comDavidGodpowerAjalaDGA/" target="_blank"><i class="fab fa-facebook icons" id="facebook"></i></a>
+            <a href="https://x.com/ajala28981" target="_blank"><i class="fa-brands fa-x-twitter icons" id="x"></i></a>
+
+    </footer>
+    <script>
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirm-password");
+  const errorMsg = document.getElementById("password-error");
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function(event) {
+    if (password.value !== confirmPassword.value) {
+      event.preventDefault(); // stop form submission
+      errorMsg.textContent = "Passwords do not match!";
+      confirmPassword.style.borderColor = "red";
+    } else {
+      errorMsg.textContent = "";
+      confirmPassword.style.borderColor = "green";
+    }
+  });
+
+  // Optional: live feedback as user types
+  confirmPassword.addEventListener("input", function() {
+    if (confirmPassword.value === password.value) {
+      errorMsg.textContent = "Passwords match ✅";
+      errorMsg.style.color = "green";
+      confirmPassword.style.borderColor = "green";
+    } else {
+      errorMsg.textContent = "Passwords do not match ❌";
+      errorMsg.style.color = "red";
+      confirmPassword.style.borderColor = "red";
+    }
+  });
+function setupToggle(passwordFieldId, toggleId) {
+  const passwordField = document.getElementById(passwordFieldId);
+  const toggle = document.getElementById(toggleId);
+
+  toggle.addEventListener('click', function() {
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+
+    // Toggle Font Awesome eye icon
+    if (type === 'password') {
+      toggle.classList.remove('fa-eye');
+      toggle.classList.add('fa-eye-slash');
+    } else {
+      toggle.classList.remove('fa-eye-slash');
+      toggle.classList.add('fa-eye');
+    }
+  });
+}
+
+// Apply to both
+setupToggle('password', 'toggle-password-1');
+setupToggle('confirm-password', 'toggle-password-2');
+
+        const phoneNumberInput = document.getElementById("phone-number");
+    phoneNumberInput.addEventListener('input', function (e) {
+      let value = phoneNumberInput.value;
+      // Always start with '+234 '
+      if (!value.startsWith('+234')) {
+        value = '+234 ' + value.replace(/[^0-9]/g, '');
+      }
+      // Remove everything except digits after '+234 '
+      let digits = value.replace(/^\+234\s*/, '').replace(/[^0-9]/g, '');
+      let formattedValue = '+234 ';
+      if (digits.length > 0) {
+        formattedValue += digits.substring(0, 3);
+      }
+      if (digits.length > 3) {
+        formattedValue += ' ' + digits.substring(3, 6);
+      }
+      if (digits.length > 6) {
+        formattedValue += ' ' + digits.substring(6, 10);
+      }
+      phoneNumberInput.value = formattedValue;
+    });
+
+    // Display current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #994DD2;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    height: auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+header img{
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+}
+a{
+    text-decoration: none;
+    color: purple;
+    font-size: large;
+}
+.link{
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+form input:focus {
+  border-color: #994DD2;
+  box-shadow: 0 0 5px rgba(153, 77, 210, 0.5);
+}
+
+
+
+form {
+    background-color: #E0BBE4;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #333;
+    border: 2px solid #994DD2;
+    position: relative;
+    z-index: 2000;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+}
+
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+form {
+    background: linear-gradient(145deg, #E0BBE4, #CBA8E0);
+}
+
+
+input{
+    border-radius: 5px;
+    gap: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 90%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    &:focus {
+        border-color: #994DD2;
+        outline: none;
+    }
+
+}
+
+.add-book{
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 20px;
+    left:20px;
+    background-color: #994DD2;
+    border: none;
+    top:10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #7a36b0;
+    }
+
+}
+#close-btn, .close-dialog, #reset-btn {
+    background-color: red;
+    border: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    top: 10px;
+    border-radius: 5px;
+    right: 10px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    &:hover {
+        color: white;
+    }
+
+}
+#reset-btn{
+    padding: 15px 20px;
+    font-weight: 900;
+}
+#reset-btn:hover{
+    background-color: lightred;
+}
+.button{
+    place-items: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: #994DD2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.button:hover{
+    background-color: #7a36b0;
+}
+#library{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 35px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 80px; /* Add bottom margin to avoid overlap with footer */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #333;
+    justify-items: center;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    max-height: 70vh;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
+    
+}
+.book-card{
+    overflow: auto;
+}
+#library::-webkit-scrollbar {
+  width: 8px;
+}
+#library::-webkit-scrollbar-thumb {
+  background-color: #994DD2;
+  border-radius: 10px;
+}
+
+
+/* "Mark as Read / Unread" button */
+.book-card .toggle-read {
+  background-color: #28a745; /* Green */
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+.book-card .toggle-read:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+
+}
+
+/* "Remove" button */
+.book-card .remove-book {
+  background-color: #dc3545; /* Red */
+   margin-right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+.book-card .remove-book:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+/* Separate each book visually */
+.book-card {
+  background-color: #E0BBE4;         /* Same tone as your form */
+  border: 2px solid #994DD2;         /* Match the app’s color theme */
+  border-radius: 10px;               /* Smooth edges */
+  padding: 15px;
+  width: 250px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Light shadow for separation */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Small hover animation for a polished feel */
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+footer{
+    bottom: 0;
+    left:0;
+    position: static;
+    width:100%;
+    padding: 5px;
+    place-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: #994DD2;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-items: center;
+    align-items: center;
+    height: auto;
+    margin-top: 20px; 
+}
+footer p{
+    color: white;
+      font-size: 25px;
+
+}
+.icons{
+     margin: 10px;
+    cursor: pointer;
+    padding: 0px;
+    font-size: 48px;
+    color: black;
+}
+#linkedin:hover{
+    color:blue;
+}
+
+#x:hover{
+    color:black;
+}
+#facebook:hover{
+    color:blue;
+}
+#github:hover{
+    color:#4078c0 ;
+}
+#gmail:hover{
+    color: red;
+}
+
+@media (max-width: 400px) {
+    form {
+        width: 90%;
+        font-size: 16px;
+    }
+}
+@media (max-width: 600px) {
+  header, footer {
+    font-size: 16px;
+  }
+  .button, .add-book {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}

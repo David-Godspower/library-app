@@ -49,8 +49,8 @@ function addBook(event) {
     const uppertitle = title.toUpperCase();
     const upperauthor = author.toUpperCase();
 
-    if(uppertitle.length < 5 || uppertitle.length > 30){
-        alert("Book's Title must be between five and thirty characters.");
+    if(uppertitle.length < 5 || uppertitle.length > 70){
+        alert("Book's Title must be between five and fifty characters.");
         return;
     } else if (upperauthor.length < 5 || upperauthor.length > 20) {
         alert("Author's name must be between five and twenty characters.");

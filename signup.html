@@ -57,11 +57,11 @@
     </div>
     <footer>
         <p>David Godspower Ajala (D.G.A.) &copy <span id="year"></span></p><br>
-            <!--<a href="https://github.com/david-godspower" target="_blank"><i class="fab fa-github icons" id="github"></i></a>-->
+            <a href="https://github.com/david-godspower" target="_blank"><i class="fab fa-github icons" id="github"></i></a>
             <a href="https://www.linkedin.com/in/david-godspower-ajala/" target="_blank"><i class="fab fa-linkedin icons" id="linkedin"></i></a>
              <a href="mailto:ajaladavid11@gmail.com" target="_blank"><i class="fas fa-envelope icons" id="gmail"></i></a>
-            <a href="https://web.facebook.com/facebook.comDavidGodpowerAjalaDGA/" target="_blank"><i class="fab fa-facebook icons" id="facebook"></i></a>
-            <a href="https://x.com/ajala28981" target="_blank"><i class="fa-brands fa-x-twitter icons" id="x"></i></a>
+            <a href="https://facebook.com/DavidGodspowerAjalaDGA/" target="_blank"><i class="fab fa-facebook icons" id="facebook"></i></a>
+            <a href="https://x.com/DavidGAjala" target="_blank"><i class="fa-brands fa-x-twitter icons" id="x"></i></a>
 
     </footer>
     <script>
@@ -72,7 +72,7 @@
 
   form.addEventListener("submit", function(event) {
     if (password.value !== confirmPassword.value) {
-      event.preventDefault(); // stop form submission
+      event.preventDefault(); 
       errorMsg.textContent = "Passwords do not match!";
       confirmPassword.style.borderColor = "red";
     } else {
@@ -81,7 +81,6 @@
     }
   });
 
-  // Optional: live feedback as user types
   confirmPassword.addEventListener("input", function() {
     if (confirmPassword.value === password.value) {
       errorMsg.textContent = "Passwords match ✅";
@@ -101,7 +100,6 @@ function setupToggle(passwordFieldId, toggleId) {
     const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordField.setAttribute('type', type);
 
-    // Toggle Font Awesome eye icon
     if (type === 'password') {
       toggle.classList.remove('fa-eye');
       toggle.classList.add('fa-eye-slash');
@@ -112,18 +110,15 @@ function setupToggle(passwordFieldId, toggleId) {
   });
 }
 
-// Apply to both
 setupToggle('password', 'toggle-password-1');
 setupToggle('confirm-password', 'toggle-password-2');
 
         const phoneNumberInput = document.getElementById("phone-number");
     phoneNumberInput.addEventListener('input', function (e) {
       let value = phoneNumberInput.value;
-      // Always start with '+234 '
       if (!value.startsWith('+234')) {
         value = '+234 ' + value.replace(/[^0-9]/g, '');
       }
-      // Remove everything except digits after '+234 '
       let digits = value.replace(/^\+234\s*/, '').replace(/[^0-9]/g, '');
       let formattedValue = '+234 ';
       if (digits.length > 0) {
@@ -138,7 +133,6 @@ setupToggle('confirm-password', 'toggle-password-2');
       phoneNumberInput.value = formattedValue;
     });
 
-    // Display current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
